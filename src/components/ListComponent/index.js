@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ItemComponent from '../ItemComponent'
+import './style.scss'
 
 class ListComponent extends Component {
     render() {
@@ -10,14 +11,18 @@ class ListComponent extends Component {
                     key={i} 
                     title={item.greeting} 
                     desc={item.about} 
-                    names={item.tags} />
+                    names={item.tags} 
+                    picture={item.picture}
+                    />
             )
         })
 
         return (
-            <ul>
-                {lists}
-            </ul>
+            <div className="lista">
+                <ul>
+                    {lists}
+                </ul>
+            </div>
         );
     }
 }

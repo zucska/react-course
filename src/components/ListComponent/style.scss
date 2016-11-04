@@ -1,0 +1,10 @@
+.lista{
+    border: 1px solid gray;
+    overflow: auto;
+    height: 400px;
+    ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+}

@@ -4,7 +4,14 @@ body {
   font-size: 12px;
 }
 
+.App{
+  display: flex;
+}
 
+.App .feed{
+  margin: 10px;
+  flex: 1;
+}
 .App ul {
  list-style: none;
  padding: 0;
