@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
-import ListCmp from './components/list'
+import ListComponent from './components/ListComponent'
 import axios from 'axios'
 
 class App extends Component {
@@ -9,10 +8,9 @@ class App extends Component {
     super(props)
 
     this.state = {
-      items: [],
-      search:'Quentin%20Tarantino'
+      items: [], // valore iniziale
+      feed:'http://beta.json-generator.com/api/json/get/EkGsXuBeG'
     }
-
 
     this.aggiornaFeed = this.aggiornaFeed.bind(this)
   }
@@ -20,34 +18,25 @@ class App extends Component {
 
   aggiornaFeed(){
 
-    axios.get('http://netflixroulette.net/api/api.php?director=James+Cameron')
-      .then( (response) => {
-        console.log(response.data);
-        this.setState({items:response.data})
+    axios.get(this.state.feed)
+      .then( response => {
+        this.setState({ items:response.data })
       })
-      .catch(function (error) {
+      .catch( error => {
         console.log(error);
       });
 
   }
 
   componentDidMount() {
-
-    axios.get('http://netflixroulette.net/api/api.php?director='+this.state.search)
-      .then( (response) => {
-        console.log(response.data);
-        this.setState({items:response.data})
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    this.aggiornaFeed()
   }
   
   render() {
     const {items} = this.state;
     return (
       <div className="App">
-        <ListCmp data={items} cliccami={this.aggiornaFeed} />
+        <ListComponent data={items} />
       </div>
     );
   }

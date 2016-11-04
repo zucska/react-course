@@ -1,22 +1,22 @@
 import React, {PureComponent} from 'react';
-import Cast from '../cast';
-import './style.css'
+import CastComponent from '../CastComponent';
+import './style.scss'
 
-class ItemCmp extends PureComponent {
+class ItemComponent extends PureComponent {
     render() {
-        const {title,desc,names,onClick} = this.props
+        const {title,desc,names} = this.props
         return (
-            <li className="item" onClick={onClick}>
+            <li className="item">
                 <h2>{title}</h2>
                 <p>
                     {desc}
                 </p>
                 <div className="cast">
-                    <Cast names={names} />
+                    <CastComponent names={names} />
                 </div>
             </li>
         );
     }
 }
 
-export default ItemCmp;
+export default ItemComponent;

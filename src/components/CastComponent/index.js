@@ -1,9 +1,9 @@
 import React, {PureComponent} from 'react';
 
-class Cast extends PureComponent {
+class CastComponent extends PureComponent {
     render() {
         const {names} = this.props
-        const namesView = names.split(',').map( (e,i) => <li key={i}>{e}</li>)
+        const namesView = names.map( (e,i) => <li key={i}>{e}</li>)
         const style = { border:'0px solid gray',padding:10 }
         return (
             <ul style={style}>
@@ -13,4 +13,4 @@ class Cast extends PureComponent {
     }
 }
 
-export default Cast;
+export default CastComponent;
